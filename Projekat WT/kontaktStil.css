@@ -168,16 +168,17 @@ section>form
 	margin-right:auto;
 }
 
-section>form>#unos>input
+section>form>#unos>p>input
 {
 	position:relative;
-	border-style:insert;
+	border-style:solid;
 	border-color:#E0E0E0;
 	border-width:3px;
 	width:90%;
 	margin-left:auto;
 	margin-right:auto;
 }
+
 
 section>form>#dugme
 {
