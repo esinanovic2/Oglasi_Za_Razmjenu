@@ -149,8 +149,11 @@ section
 }
 section>h2
 {
+	
+	overflow:hidden;
 	position:relative;
 	font-family:Tahoma;
+	font-size:3vh;
 	color:#808080;
 	text-align:center;
 	background-color:#e6e6e6;
@@ -163,10 +166,31 @@ section>form
 {
 	position:relative;
 	text-align:center;
-	width:90%;
+	width:40vw;
 	margin-left:auto;
 	margin-right:auto;
 }
+
+section>form>#labele
+{
+	overflow:hidden;
+	font-size:2vh;
+	text-align:right;
+	width:11vw;
+	margin-left:auto;
+	margin-right:auto;
+	float:left;
+}
+
+section>form>#unos
+{
+	font-size:2vh;
+	width:28vw;
+	margin-left:auto;
+	margin-right:auto;
+	float:right;
+}
+
 
 section>form>#unos>p>input
 {
@@ -174,7 +198,7 @@ section>form>#unos>p>input
 	border-style:solid;
 	border-color:#E0E0E0;
 	border-width:3px;
-	width:90%;
+	width:95%;
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -182,7 +206,8 @@ section>form>#unos>p>input
 
 section>form>#dugme
 {
-	width:80%;
+	clear:both;
+	width:37vw;
 	position:relative;
 	margin-left:auto;
 	margin-right:auto;
@@ -193,7 +218,7 @@ section>form>#dugme>label
 {
 
 	margin-right:auto;
-	font-size:50%;
+	font-size:1.5vh;
 	float:left;
 }
 
@@ -201,7 +226,7 @@ section>form>#dugme>button
 {
 	position:relative;
 	margin-left:auto;
-	font-size:50%;
+	font-size:1.5vh;
 	float:right;
 }
 

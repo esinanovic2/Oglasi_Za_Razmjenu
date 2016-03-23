@@ -44,29 +44,37 @@
 	<h2>Registracija</h2>
 	
 	<form method="POST" action="Naslovna.html">
-		
+	
+		<div id="labele">
+			<p><label>Korisničko ime</label></p>
+			<p><label>Šifra</label></p>
+			<p><label>Ponovi Šifru</label></p>
+			<p><label>E-Mail</label></p>
+			<p><label>Datum rođenja - dd/mm/yyyy</label></p>
+			<p><label>Broj telefona</label></p>
+		</div>
 		<div id="unos">
 		<p >
-				<input type="text" name="ime" placeholder="Korisničko ime" required>
+				<input type="text" name="ime" required>
 		</p>
 		
 		<p >
-				<input type="password" name="prezime" placeholder="Šifra" required>
+				<input type="password" name="password" required>
 		</p>
 		<p >
-				<input type="password" name="password" placeholder="Ponovi šifru" required>
-		</p>
-		
-		<p >
-				<input type="email" name="email" placeholder="E-Mail" required>
+				<input type="password" name="ppassword" required>
 		</p>
 		
 		<p >
-				<input type="date" name="datum" placeholder="Datum rođenja - dd/mm/yyyy" required>
+				<input type="email" name="email"  required>
 		</p>
 		
 		<p >
-				<input type="tel" name="broj telefona" placeholder="Broj telefona">
+				<input type="date" name="datum" required>
+		</p>
+		
+		<p >
+				<input type="tel" name="broj telefona" >
 		</p>
 		
 		</div>
