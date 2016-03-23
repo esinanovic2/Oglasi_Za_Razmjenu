@@ -19,7 +19,7 @@ header
 {
 	font-size:3vh;
 	font-size:3vw;
-	width:100%;
+	width:90vw;
 	background-color:#0099ff;
 	border-style:solid;
 	border-color:navy;
@@ -28,8 +28,19 @@ header
 	/*border-radius:5px;*/
 }
 
-header>h1
+header>#naslov
 {
+	height:15vh;
+}
+
+header>#naslov>h1
+{
+	top:1vh;
+	bottom:2vh;
+	position:relative;
+	margin-top:5%;
+	margin-bottom:5%;
+	height:30%;
 	text-align:center;
 	text-shadow:2px 2px black;
 	font-style:oblique;
@@ -41,8 +52,8 @@ header>h1
 {
 	float:left;
 	position:absolute;
-	top:8vh;
 	left:8vw;
+	bottom:82vh;
 	background-color:transparent;
 	height:10vh;
 	width:9vw;
@@ -114,6 +125,7 @@ header>h1
 
 nav
 {
+	margin-top:2vh;
 	font-size:2vh;
 	font-size:2vw;
 	padding:3px;
@@ -124,7 +136,8 @@ nav
 nav>ul>li
 {
 	font-family:georgia;
-	padding:45px;
+	padding-left:45px;
+	padding-right:45px;
 	display:inline;
 }
 nav>ul>li>a

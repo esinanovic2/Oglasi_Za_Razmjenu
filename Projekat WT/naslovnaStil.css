@@ -29,8 +29,19 @@ header
 	/*border-radius:5px;*/
 }
 
-header>h1
+header>#naslov
 {
+	height:15vh;
+}
+
+header>#naslov>h1
+{
+	top:1vh;
+	bottom:2vh;
+	position:relative;
+	margin-top:5%;
+	margin-bottom:5%;
+	height:30%;
 	text-align:center;
 	text-shadow:2px 2px black;
 	font-style:oblique;
@@ -115,6 +126,7 @@ header>h1
 
 nav
 {
+	margin-top:2vh;
 	font-size:2vh;
 	font-size:2vw;
 	padding:3px;
@@ -125,7 +137,8 @@ nav
 nav>ul>li
 {
 	font-family:georgia;
-	padding:45px;
+	padding-left:45px;
+	padding-right:45px;
 	display:inline;
 }
 nav>ul>li>a
@@ -200,6 +213,7 @@ nav>ul>li>a
 }
 #novosti>section
 {
+	
 	position:relative;
 	padding-top:1%;
 	padding-bottom:2%;
@@ -207,6 +221,7 @@ nav>ul>li>a
 	margin-bottom:5px;
 	margin-left:auto;
 	margin-right:auto;
+	/*min-width:100px; Ako se uključi ova linija onda će se novosti poredati jedna ispod druge prilikom smanjivanja širine browsera. Nisam siguran da li treba tako pa sam zakomentarisao ovu liniju.*/
 	width:15vw;
 	height:30vh;
 	background-color:#ff8533;
