@@ -5,7 +5,9 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="kontaktStil.css" media="all">
+<script src="formaScript.js"></script>
 <title>Kontakt</title>
+
 
 </head>
 
@@ -59,26 +61,26 @@
 		</div>
 		<div id="unos">
 		<p >
-				<input type="text" name="ime" required>
+				<input type="text" name="ime" id="ime" onblur="imeValid()" required>
 		</p>
 		
 		<p >
-				<input type="password" name="password" required>
+				<input type="password" name="password" id="pass" required >
 		</p>
 		<p >
-				<input type="password" name="ppassword" required>
-		</p>
-		
-		<p >
-				<input type="email" name="email"  required>
+				<input type="password" name="ppassword" id="ppass" onblur="sifraValid()" required>
 		</p>
 		
 		<p >
-				<input type="date" name="datum" required>
+				<input type="email" name="email" id="email" onblur="emailValid()" required>
 		</p>
 		
 		<p >
-				<input type="tel" name="broj telefona" >
+				<input type="date" name="datum" id="datum" required>
+		</p>
+		
+		<p >
+				<input type="tel" name="broj telefona" id="brtel" >
 		</p>
 		
 		</div>
