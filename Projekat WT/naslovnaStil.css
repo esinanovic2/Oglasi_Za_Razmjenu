@@ -159,6 +159,22 @@ nav>ul>li>a
 	float:left;
 }
 
+#forma
+{
+	width:23vw;
+	margin-bottom:5px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#0099ff;
+	border-style:solid;
+	border-color:black;
+	float:left;
+	height:25vh;
+	text-align:center;
+
+}
+
+
 #kategorije>h2
 {
 	font-size:3vh;
@@ -210,6 +226,8 @@ nav>ul>li>a
 	width:59vw;
 	float:right;
 	padding-left:3vw;
+	min-height:800px;
+
 }
 #novosti>section
 {
@@ -252,11 +270,14 @@ nav>ul>li>a
 {
 	position:relative;
 	width:15vw;
-	height:10vh;
+	height:8vh;
 	margin-top:3vh;
 	margin-left:auto;
 	margin-right:auto;
+	margin-bottom:-5px;
 }
+
+
 .tekst>h2
 {
 	font-size:1vh;
@@ -273,6 +294,21 @@ nav>ul>li>a
 	text-align:center;
 }
 
+.datum
+{
+	position:relative;
+	width:10vw;
+	height:2vh;
+	text-align:center;
+	margin-top:-2vh;
+	margin-right:auto;
+	margin-left:auto;
+	font-size:1.2vh;
+}
+
+#vrijeme
+{
+}
 footer
 {
 	font-size:2vh;
