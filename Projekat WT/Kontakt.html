@@ -76,11 +76,11 @@
 		</p>
 		
 		<p >
-				<input type="date" name="datum" id="datum" required>
+				<input type="date" name="datum" id="datum" onblur="datumValid()" required>
 		</p>
 		
 		<p >
-				<input type="tel" name="broj telefona" id="brtel" >
+				<input type="tel" name="broj telefona" id="brtel" onblur="telefonValid()" required>
 		</p>
 		
 		</div>
@@ -90,7 +90,7 @@
 				<input type="checkbox" name="zapamti"> Zapamti me
 			</label>
 			
-			<button>Login</button>
+			<button id="but" >Login</button>
 		</p>
 		
 		

@@ -111,7 +111,7 @@ function racunajSedmice(razlikaSedmice)
 for(var i=0;i<novosti.length;i++)
 {
 	var vrijeme=document.getElementsByClassName("vrijeme");
-	vrijeme[i].setAttribute("data-datum","Apr 1, 2016 13:30:00");
+	vrijeme[i].setAttribute("data-datum","Apr 2, 2016 13:30:00");
 	if(i>=4 && i<8)
 	{
 		vrijeme[i].setAttribute("data-datum","Mar 29, 2016");
