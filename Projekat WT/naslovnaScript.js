@@ -218,6 +218,7 @@ if(izabrani.options[izabrani.selectedIndex].value=="sedmica")
 		}
 	}
 
+for(var i=0;i<novosti.length;i++)//petlja koja poziva funkcije za računanje proteklog vremena za sve vijesti
 {
 	var vrijeme=document.getElementsByClassName("vrijeme");
 	var vrijemeString=vrijeme[i].getAttribute("data-datum");
