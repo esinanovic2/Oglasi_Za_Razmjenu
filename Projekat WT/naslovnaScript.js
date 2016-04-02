@@ -61,7 +61,7 @@ function racunajSate(razlikaSati)
 		}
 		else
 		{
-			ispis=" prije - "+Math.round(razlikaMinute)+" sati";
+			ispis=" prije - "+Math.round(razlikaSati)+" sati";
 		}
 	}
 }	
