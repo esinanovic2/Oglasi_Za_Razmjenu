@@ -1,8 +1,9 @@
+
 var novosti=document.getElementsByClassName("novost");
 var ispis;
 var datum;
 
-	function racunajMinute(razlikaMinute)
+	function racunajMinute(razlikaMinute)//funkcija koja provjerava koliko je minuta prošlo i postavlja pravilan oblik riječi
 	{
 		if(razlikaMinute>=1 && razlikaMinute<2)
 		{
@@ -34,7 +35,7 @@ var datum;
 		}
 	}
 	
-function racunajSate(razlikaSati)
+function racunajSate(razlikaSati)//funkcija koja provjerava koliko je sati prošlo i postavlja pravilan oblik riječi
 {
 	if(razlikaSati>=1 && razlikaSati<2)
 	{
@@ -66,7 +67,7 @@ function racunajSate(razlikaSati)
 	}
 }	
 
-function racunajDane(razlikaDani)
+function racunajDane(razlikaDani)//funkcija koja provjerava koliko je dana prošlo i postavlja pravilan oblik riječi
 {
 	if(razlikaDani>=1 && razlikaDani<2)
 	{
@@ -90,7 +91,7 @@ function racunajDane(razlikaDani)
 	}
 }
 
-function racunajSedmice(razlikaSedmice)
+function racunajSedmice(razlikaSedmice)//funkcija koja provjerava koliko je sedmica prošlo i postavlja pravilan oblik riječi
 {
 	if(razlikaSedmice<=1 && razlikaSedmice<1.5)
 	{
@@ -100,7 +101,7 @@ function racunajSedmice(razlikaSedmice)
 	{
 		ispis=" prije - "+Math.round(razlikaSedmice)+" sedmice";
 	}
-	else 
+	else if(razlikaSedmice>5)
 	{
 		ispis=datum;
 	}
@@ -114,14 +115,14 @@ for(var i=0;i<novosti.length;i++)
 	vrijeme[i].setAttribute("data-datum","Apr 2, 2016 13:30:00");
 	if(i>=4 && i<8)
 	{
-		vrijeme[i].setAttribute("data-datum","Mar 29, 2016");
+		vrijeme[i].setAttribute("data-datum","Mar 31, 2016");
 	}
 	if(i>=8)
 	{
 		vrijeme[i].setAttribute("data-datum","Mar 18, 2002");
 	}
 }
-
+//ova petlja postavlja klasu na sekcije novosti u zavisnosti od toga koliko je sati/dana/sedmica prošlo od postavljanja
 for(var i=0;i<novosti.length;i++)
 {
 	var vrijeme=document.getElementsByClassName("vrijeme");
@@ -135,12 +136,14 @@ for(var i=0;i<novosti.length;i++)
 	var Sati=Minute/60;
 	var Dani=Sati/24;
 	var Sedmice=Dani/7;
+	var n=new Date();
+	var danUSedmici=n.getDay();
 	
-	if(Sati<24 && Dani<=1);
+	if(Sati<24)
 	{
 		sekcija.className ="novost danas";
 	}
-	if(Sati>24 && Dani>1 && Dani<=7)
+	if(Dani>1 && Dani<7)
 	{
 		sekcija.className="novost sedmica";
 	}
@@ -160,7 +163,7 @@ function reload()
 	window.location.reload();
 }
 var izabrani=document.getElementById("izbor");
-if(izabrani.options[izabrani.selectedIndex].value=="danas")
+if(izabrani.options[izabrani.selectedIndex].value=="danas")//skrivanje vijesti koje nisu selektovane
 	{
 		var ostali=document.getElementsByClassName("ostalo");
 		var mjesec=document.getElementsByClassName("mjesec");
@@ -215,7 +218,6 @@ if(izabrani.options[izabrani.selectedIndex].value=="sedmica")
 		}
 	}
 
-for(var i=0;i<novosti.length;i++)
 {
 	var vrijeme=document.getElementsByClassName("vrijeme");
 	var vrijemeString=vrijeme[i].getAttribute("data-datum");
