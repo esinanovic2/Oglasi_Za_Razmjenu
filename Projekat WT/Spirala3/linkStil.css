@@ -1,0 +1,179 @@
+
+body
+{
+	width:90%;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#ccf5ff;
+}
+
+h1
+{
+	font-family:georgia;
+}
+h2
+{
+	font-family:Arial;
+}
+
+header
+{
+	font-size:3vh;
+	font-size:3vw;
+	width:90vw;
+	background-color:#0099ff;
+	border-style:solid;
+	border-color:navy;
+	border-bottom-right-radius:10px;
+	border-bottom-left-radius:10px;
+	/*border-radius:5px;*/
+}
+
+header>#naslov
+{
+	height:15vh;
+}
+
+header>#naslov>h1
+{
+	top:1vh;
+	bottom:2vh;
+	position:relative;
+	margin-top:5%;
+	margin-bottom:5%;
+	height:30%;
+	text-align:center;
+	text-shadow:2px 2px black;
+	font-style:oblique;
+	color:#FF9933;
+}
+
+
+.okvir
+{
+	float:left;
+	position:absolute;
+	left:8vw;
+	bottom:82vh;
+	background-color:transparent;
+	height:10vh;
+	width:9vw;
+}
+
+.krug1
+{
+	position:absolute;
+	height:0px;
+	width:0px;
+	border:1vh solid #FF9933;
+	border-radius:1vh;
+	top:0.7vh;
+	right:2.9vw;
+}
+
+.krug2
+{
+	position:absolute;
+	height:0px;
+	width:0px;
+	border:1vh solid #FF9933;
+	border-radius:1vh;
+	bottom:0.5vh;
+	left:2.8vw;
+}
+
+.desni
+{
+	position:absolute;
+	bottom:4.2vh;
+	right:0.2vw;
+	height:0px;
+	width:0px;
+	border-top:2vh solid transparent;
+	border-bottom:2vh solid transparent;
+	border-left:2vw solid #FF9933;	
+}
+
+.d
+{
+	position:absolute;
+	top:2.9vh;
+	right:1.6vw;
+	background-color:#FF9933;
+	width:5vw;
+	height:2vh;
+}
+.lijevi
+{
+	position:absolute;
+	bottom:1.5vh;
+	left:0.1vw;
+	height:0px;
+	width:0px;
+	border-top:2vh solid transparent;
+	border-bottom:2vh solid transparent;
+	border-right:2vw solid #FF9933;
+}
+.l
+{
+	position:absolute;
+	bottom:2.5vh;
+	left:1.4vw;
+	background-color:#FF9933;
+	width:5vw;
+	height:2vh;
+}
+
+nav
+{
+	margin-top:2vh;
+	font-size:2vh;
+	font-size:2vw;
+	padding:3px;
+	background-color:#007acc;
+	text-align:center;
+	
+}
+nav>ul>li
+{
+	font-family:georgia;
+	padding-left:45px;
+	padding-right:45px;
+	display:inline;
+}
+nav>ul>li>a
+{
+	color:#FF9933;
+}
+
+
+#link>ul
+{
+	list-style:none;
+}
+
+#link>ul>li:hover
+{
+	list-style-image: url('./slike/bullet.png');
+}
+
+#link>ul>li
+{
+	font-size:40px;
+}
+
+
+footer
+{
+	font-size:2vh;
+	margin-top:100px;
+	/*margin:2px;*/
+	text-align:center;
+	background-color:#0066FF;
+	border-style:solid;
+	border-color:navy;
+	border-top-right-radius:10px;
+	border-top-left-radius:10px;
+	clear:both;
+	
+}
