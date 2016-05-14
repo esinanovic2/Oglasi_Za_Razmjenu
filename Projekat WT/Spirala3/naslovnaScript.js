@@ -109,13 +109,13 @@ function racunajSedmice(razlikaSedmice)//funkcija koja provjerava koliko je sedm
 }	
 
 //Ova petlja postavlja datume u novosti, za testiranje treba promijeniti postavljene datume
-for(var i=0;i<novosti.length;i++)
+for(var i=5;i<novosti.length;i++)
 {
 	var vrijeme=document.getElementsByClassName("vrijeme");
-	vrijeme[i].setAttribute("data-datum","Apr 3, 2016 13:30:00");
-	if(i>=4 && i<8)
+	vrijeme[i].setAttribute("data-datum","May 13, 2016 13:30:00");
+	if(i>=5 && i<8)
 	{
-		vrijeme[i].setAttribute("data-datum","Mar 31, 2016");
+		vrijeme[i].setAttribute("data-datum","Apr 18, 2016");
 	}
 	if(i>=8)
 	{
@@ -131,11 +131,11 @@ for(var i=0;i<novosti.length;i++)
 	var parsiranDatum=Date.parse(vrijemeString);
 	var sad=Date.now();
 	razlika=sad-parsiranDatum;
-	var Sekunde=razlika/1000;
-	var Minute=Sekunde/60;
-	var Sati=Minute/60;
-	var Dani=Sati/24;
-	var Sedmice=Dani/7;
+	var Sekunde=Math.round(razlika/1000);
+	var Minute=Math.round(Sekunde/60);
+	var Sati=Math.round(Minute/60);
+	var Dani=Math.round(Sati/24);
+	var Sedmice=Math.round(Dani/7);
 	var n=new Date();
 	var trenutniMjesec=n.getMonth();
 	var trenutniDan=n.getDay();
@@ -148,12 +148,12 @@ for(var i=0;i<novosti.length;i++)
 	{
 		sekcija.className ="novost danas";
 	}
-	else if(Dani>1 && Dani<7)
+	else if(Dani>=1 && Dani<7)
 	{
 		sekcija.className="novost sedmica";
 	}
 	//if(Sati>24 && Dani>7 && Dani<=31)
-	else if(trenutniMjesec==mjesec)	
+	else if(trenutniMjesec==mjesec || Dani<31)	
 	{
 		sekcija.className="novost mjesec";
 	}
@@ -169,7 +169,25 @@ function reload()
 	window.location.reload();
 }
 var izabrani=document.getElementById("izbor");
-if(izabrani.options[izabrani.selectedIndex].value=="danas")//skrivanje vijesti koje nisu selektovane
+function danas()
+{
+		var ostali=document.getElementsByClassName("ostalo");
+		var mjesec=document.getElementsByClassName("mjesec");
+		var sedmica=document.getElementsByClassName("sedmica");
+		for(var i=0;i<ostali.length;i++)
+		{
+			ostali[i].style.display="none";
+		}
+		for(var i=0;i<mjesec.length;i++)
+		{
+			mjesec[i].style.display="none";
+		}
+		for(var i=0;i<sedmica.length;i++)
+		{
+			sedmica[i].style.display="none";
+		}
+}
+/*if(izabrani.options[izabrani.selectedIndex].value=="danas")//skrivanje vijesti koje nisu selektovane
 	{
 		var ostali=document.getElementsByClassName("ostalo");
 		var mjesec=document.getElementsByClassName("mjesec");
@@ -186,9 +204,33 @@ if(izabrani.options[izabrani.selectedIndex].value=="danas")//skrivanje vijesti k
 		{
 			sedmica[i].style.display="none";
 		}
-	}
+	}*/
 
-
+function sedmica()
+{
+		var ostali=document.getElementsByClassName("ostalo");
+		for(var i=0;i<ostali.length;i++)
+		{
+			ostali[i].style.display="none";
+		}
+		var mjesec=document.getElementsByClassName("mjesec");
+		for(var i=0;i<mjesec.length;i++)
+		{
+			mjesec[i].style.display="none";
+		}
+		var sedmica=document.getElementsByClassName("sedmica");
+		for(var i=0;i<sedmica.length;i++)
+		{
+			sedmica[i].style.display="block";
+		}
+		var danas=document.getElementsByClassName("danas");
+		for(var i=0;i<danas.length;i++)
+		{
+			danas[i].style.display="block";
+		}
+		
+}
+/*
 if(izabrani.options[izabrani.selectedIndex].value=="sedmica")
 {
 		var ostali=document.getElementsByClassName("ostalo");
@@ -203,8 +245,32 @@ if(izabrani.options[izabrani.selectedIndex].value=="sedmica")
 		}
 		
 }
+*/
 
-
+function m()
+{
+		var ostali=document.getElementsByClassName("ostalo");
+		for(var i=0;i<ostali.length;i++)
+		{
+			ostali[i].style.display="none";
+		}
+		var mjesec=document.getElementsByClassName("mjesec");
+		for(var i=0;i<mjesec.length;i++)
+		{
+			mjesec[i].style.display="block";
+		}
+		var sedmica=document.getElementsByClassName("sedmica");
+		for(var i=0;i<sedmica.length;i++)
+		{
+			sedmica[i].style.display="block";
+		}
+		var danas=document.getElementsByClassName("danas");
+		for(var i=0;i<danas.length;i++)
+		{
+			danas[i].style.display="block";
+		}
+}
+/*
 	if(izabrani.options[izabrani.selectedIndex].value=="mjesec")
 	{
 		var ostali=document.getElementsByClassName("ostalo");
@@ -213,8 +279,32 @@ if(izabrani.options[izabrani.selectedIndex].value=="sedmica")
 			ostali[i].style.display="none";
 		}
 	}
+*/
 
-	if(izabrani.options[izabrani.selectedIndex].value=="sve")
+function sve()
+{
+	var sve=document.getElementsByClassName("novost");
+		for(var i=0;i<sve.length;i++)
+		{
+			sve[i].style.display="block";
+		}
+		var ostali=document.getElementsByClassName("ostalo");
+		for(var i=0;i<ostali.length;i++)
+		{
+			ostali[i].style.display="block";
+		}
+		var mjesec=document.getElementsByClassName("mjesec");
+		for(var i=0;i<mjesec.length;i++)
+		{
+			mjesec[i].style.display="block";
+		}
+		var sedmica=document.getElementsByClassName("sedmica");
+		for(var i=0;i<sedmica.length;i++)
+		{
+			sedmica[i].style.display="block";
+		}
+}
+	/*if(izabrani.options[izabrani.selectedIndex].value=="sve")
 	{
 		
 		var sve=document.getElementsByClassName("novost");
@@ -222,7 +312,7 @@ if(izabrani.options[izabrani.selectedIndex].value=="sedmica")
 		{
 			sve[i].style.display="visible";
 		}
-	}
+	}*/
 
 for(var i=0;i<novosti.length;i++)//petlja koja poziva funkcije za računanje proteklog vremena za sve vijesti
 {
@@ -232,11 +322,11 @@ for(var i=0;i<novosti.length;i++)//petlja koja poziva funkcije za računanje pro
 	var parsiranDatum=Date.parse(vrijemeString);
 	var sad=Date.now();
 	razlika=sad-parsiranDatum;
-	var Sekunde=razlika/1000;
-	var Minute=Sekunde/60;
-	var Sati=Minute/60;
-	var Dani=Sati/24;
-	var Sedmice=Dani/7;
+	var Sekunde=Math.round(razlika/1000);
+	var Minute=Math.round(Sekunde/60);
+	var Sati=Math.round(Minute/60);
+	var Dani=Math.round(Sati/24);
+	var Sedmice=Math.round(Dani/7);
 	
 	
 	if(Sekunde<60)

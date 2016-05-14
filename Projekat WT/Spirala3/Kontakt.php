@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!Doctype html>
 
 <html>
@@ -33,12 +36,27 @@
 	</div>
 	</div>
 	
+	<div id="login">
+	<?php
+		
+			echo "<br>";
+			if(isset($_SESSION["username"]))
+			{
+				echo "Logirani ste kao: ".$_SESSION["username"];
+			}
+			else
+			{
+				echo "Niste logirani!";
+			}
+	?>
+	</div>
+	
 	<nav>
 		<ul>
-			<li><a href="Naslovna.html">Naslovna</a></li>
-			<li><a href="Kontakt.html">Kontakt</a></li>
-			<li><a href="Tabela.html">Tabela</a></li>
-			<li><a href="link.html">Linkovi</a></li>
+			<li><a href="Naslovna.php">Naslovna</a></li>
+			<li><a href="Kontakt.php">Kontakt</a></li>
+			<li><a href="Tabela.php">Tabela</a></li>
+			<li><a href="Link.php">Linkovi</a></li>
 		</ul>
 	
 	</nav>
@@ -104,17 +122,25 @@
 			$podatak=htmlspecialchars($podatak);
 			return $podatak;
 		}
-		$username=provjera($_REQUEST['ime']);
-		$password=password_hash(provjera($_REQUEST['password']),PASSWORD_DEFAULT);
-		$email=provjera($_REQUEST['email']);
-		$datum=provjera($_REQUEST['datum']);
-		$telefon=provjera($_REQUEST['brojtelefona']);
-		
-		//echo "Radi: ".$username." ".$password." ".$email." ".$datum." ".$telefon;
-		$korisnici=fopen("Korisnici.txt","a+") or die("Datoteka se ne može otvoriti");
-		fwrite($korisnici,$username."\n");
-		fwrite($korisnici,$password."\n");
-		fclose($korisnici);
+		if(isset($_REQUEST['ime'])&&($_REQUEST['ime']!="")
+			&&isset($_REQUEST['password'])
+			&&($_REQUEST['password']!="")
+			&&isset($_REQUEST['email'])&&($_REQUEST['email']!="")
+			&&isset($_REQUEST['datum'])&&($_REQUEST['datum']!="")
+			&&isset($_REQUEST['brojtelefona'])&&($_REQUEST['brojtelefona']!="")
+			)
+		{
+			$username=provjera($_REQUEST['ime']);
+			$password=password_hash(provjera($_REQUEST['password']),PASSWORD_DEFAULT);
+			$email=provjera($_REQUEST['email']);
+			$datum=provjera($_REQUEST['datum']);
+			$telefon=provjera($_REQUEST['brojtelefona']);
+
+			$korisnici=fopen("Korisnici.txt","a+") or die("Datoteka se ne može otvoriti");
+			fwrite($korisnici,$username."\n");
+			fwrite($korisnici,$password."\n");
+			fclose($korisnici);
+		}
 	?>
 	
 

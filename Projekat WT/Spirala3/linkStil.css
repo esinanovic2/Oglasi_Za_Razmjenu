@@ -124,6 +124,17 @@ header>#naslov>h1
 	height:2vh;
 }
 
+#login
+{
+	background-color:transparent;
+	float:right;
+	position:absolute;
+	right:5vw;
+	bottom:82vh;
+	font-size:1vh;
+	font-size:1vw;
+}
+
 nav
 {
 	margin-top:2vh;

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!Doctype html>
 
 <html>
@@ -5,7 +8,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="naslovnaStil.css" media="all">
-
+<script src="naslovnaScript.js"></script>
 
 <title>Naslovna</title>
 
@@ -73,12 +76,28 @@
 			
 			if($fusername==$username && password_verify($password, $fpassword))
 			{
-				echo "Dobrodošli: ".$fusername;
+				$_SESSION["username"]=$username;
+				echo "Dobrodošli: ",$_SESSION["username"];
 			}
 			else
 			{
 				echo "Niste unijeli validne podatke!";
+				$_SESSION["username"]=null;
 			}
+		}
+		else
+		{
+			echo "<br>";
+			if(isset($_SESSION["username"]))
+			{
+				echo "Logirani ste kao: ".$_SESSION["username"];
+			}
+			else
+			{
+				echo "Niste logirani!";
+			}
+			
+			
 		}
 		
 	?>
@@ -87,9 +106,15 @@
 	<nav>
 		<ul>
 			<li><a href="#">Naslovna</a></li>
-			<li><a href="Kontakt.html">Kontakt</a></li>
-			<li><a href="Tabela.html">Tabela</a></li>
-			<li><a href="Link.html">Linkovi</a></li>
+			<li><a href="Kontakt.php">Kontakt</a></li>
+			<li><a href="Tabela.php">Tabela</a></li>
+			<li><a href="Link.php">Linkovi</a></li>
+			<?php
+			if(isset($_SESSION["username"]))
+			{
+				echo "<li><a href='DodajVijest.php'>Dodaj Vijest</a></li>";
+			}
+			?>
 		</ul>
 	
 	</nav>
@@ -115,26 +140,80 @@
 
 
 <div id="novosti">
-	<section id="1" class="novost">
+	<?php
+		$vijest=fopen("Novosti.csv",'r')or die("Datoteka se ne može otvoriti");
+		$i=0;
+		while(!feof($vijest))
+		{
+			$sadrzaj[$i]=fgets($vijest);
+			$i++;
+		}
+		$naslov; $oglas; $url; $datum;
+		for($j=0;$j<count($sadrzaj);$j++)
+		{
+			$temp=$sadrzaj[$j];
+			$linija=explode(";",$temp);
+			
+			if (!isset($linija[0]) || !isset($linija[1]) || !isset($linija[2]) || !isset($linija[3])) {
+				$linija[0] = null;
+				$linija[1] = null;
+				$linija[2] = null;
+				$linija[3] = null;
+			}
+			$naslov=$linija[0];
+			$oglas=$linija[1];
+			$url=$linija[2];
+			$datum=$linija[3];
+			
+			echo 
+			"
+				<section id='".$j."' class='novost'>
+		
+					<div class='slika'> 
+						<a href='http://www.google.ba'>
+							<img src='".$url."' alt='Slika'>
+						</a>
+					</div>
+			
+					<div class='tekst'>
+						<h2> ".$naslov." </h2>
+						
+						<p>
+							".$oglas."
+						</p>
+						<aside class='datum'>Objavljeno: <time class='vrijeme' data-datum=".$datum."></time> </aside>
+					</div>
+							
+				</section>
+			
+			";
+		
+		
+		}
+		
+		
+		
+	?>
+	<section id="5" class="novost">
 	
 		<div class="slika"> 
-		<a href="http://www.google.ba">
-			<img src="./slike/masina.jpg" alt="Slika Masine">
-		</a>
+			<a href="http://www.google.ba">
+				<img src="./slike/masina.jpg" alt="Slika Masine">
+			</a>
 		</div>
 		
 		<div class="tekst">
-		<h2> Veš mašina </h2>
-		
-		<p>
-			Mašina stara 2 godine, mijenjam za sušilicu.
-		</p>
-		<aside class="datum">Objavljeno: <time class="vrijeme" ></time> </aside>
+			<h2> Veš mašina </h2>
+			
+			<p>
+				Mašina stara 2 godine, mijenjam za sušilicu.
+			</p>
+			<aside class="datum">Objavljeno: <time class="vrijeme" ></time> </aside>
 		</div>
 						
 	</section>
 	
-	<section id="2" class="novost">
+	<section id="6" class="novost">
 		<div class="slika"> 
 			<a href="http://www.google.ba">
 			<img src="./slike/golf2.jpg" alt="Slika Golfa"> 
@@ -153,7 +232,7 @@
 		
 	</section>
 
-	<section id="3" class="novost">
+	<section id="7" class="novost">
 		<div class="slika"> 
 			<a href="http://www.google.ba">
 			<img src="./slike/golf2.jpg" alt="Slika Golfa"> 
@@ -173,7 +252,7 @@
 	</section>
 	
 	
-	<section id="4" class="novost">
+	<section id="8" class="novost">
 		
 		<div class="slika"> 
 			<a href="http://www.google.ba">
@@ -190,7 +269,7 @@
 		
 	</section>
 	
-	<section id="5" class="novost">
+	<section id="9" class="novost">
 		
 		<div class="slika">  
 			<a href="http://www.google.ba">
@@ -207,7 +286,7 @@
 					
 	</section>
 	
-	<section id="6" class="novost">
+	<section id="10" class="novost">
 		
 		<div class="slika"> 
 			<a href="http://www.google.ba">
@@ -224,98 +303,98 @@
 					
 	</section>
 	
-	<section id="7" class="novost">
-		
-		<div class="slika"> 
-			<a href="http://www.google.ba">
-			<img src="./slike/xperiaz1.jpg" alt="Slika Masine"> 
-			</a>
-		</div>
-		
-		<div class="tekst">
-		<h2>Mobitel Xperia z1</h2>
-		
-		<p> Dobro očuvan, sa sd karticom, mijenjam za samsung galaxy s4.</p>
-		<aside class="datum">Objavljeno: <time class="vrijeme" ></time> </aside>
-		</div>
-					
-	</section>
-	
-	<section id="8" class="novost">
-		
-		<div class="slika"> 
-			<a href="http://www.google.ba">
-			<img src="./slike/xperiaz1.jpg" alt="Slika Masine"> 
-			</a>
-		</div>
-		
-		<div class="tekst">
-		<h2>Mobitel Xperia z1</h2>
-		
-		<p> Dobro očuvan, sa sd karticom, mijenjam za samsung galaxy s4.</p>
-		<aside class="datum">Objavljeno: <time class="vrijeme" ></time> </aside>
-		</div>
-					
-	</section>
-	
-	<section id="9" class="novost">
-	
-		<div class="slika"> 
-		<a href="http://www.google.ba">
-			<img src="./slike/masina.jpg" alt="Slika Masine">
-		</a>
-		</div>
-		
-		<div class="tekst">
-		<h2> Veš mašina </h2>
-		
-		<p>
-			Mašina stara 2 godine, mijenjam za sušilicu.
-		</p>
-		<aside class="datum">Objavljeno: <time class="vrijeme" ></time> </aside>
-		</div>
-						
-	</section>
-	
-	<section id="10" class="novost">
-	
-		<div class="slika"> 
-		<a href="http://www.google.ba">
-			<img src="./slike/masina.jpg" alt="Slika Masine">
-		</a>
-		</div>
-		
-		<div class="tekst">
-		<h2> Veš mašina </h2>
-		
-		<p>
-			Mašina stara 2 godine, mijenjam za sušilicu.
-		</p>
-		<aside class="datum">Objavljeno: <time class="vrijeme" ></time> </aside>
-		</div>
-						
-	</section>
-	
 	<section id="11" class="novost">
-	
+		
 		<div class="slika"> 
-		<a href="http://www.google.ba">
-			<img src="./slike/masina.jpg" alt="Slika Masine">
-		</a>
+			<a href="http://www.google.ba">
+			<img src="./slike/xperiaz1.jpg" alt="Slika Masine"> 
+			</a>
 		</div>
 		
 		<div class="tekst">
-		<h2> Veš mašina </h2>
+		<h2>Mobitel Xperia z1</h2>
 		
-		<p>
-			Mašina stara 2 godine, mijenjam za sušilicu.
-		</p>
+		<p> Dobro očuvan, sa sd karticom, mijenjam za samsung galaxy s4.</p>
 		<aside class="datum">Objavljeno: <time class="vrijeme" ></time> </aside>
 		</div>
-						
+					
 	</section>
 	
 	<section id="12" class="novost">
+		
+		<div class="slika"> 
+			<a href="http://www.google.ba">
+			<img src="./slike/xperiaz1.jpg" alt="Slika Masine"> 
+			</a>
+		</div>
+		
+		<div class="tekst">
+		<h2>Mobitel Xperia z1</h2>
+		
+		<p> Dobro očuvan, sa sd karticom, mijenjam za samsung galaxy s4.</p>
+		<aside class="datum">Objavljeno: <time class="vrijeme" ></time> </aside>
+		</div>
+					
+	</section>
+	
+	<section id="13" class="novost">
+	
+		<div class="slika"> 
+		<a href="http://www.google.ba">
+			<img src="./slike/masina.jpg" alt="Slika Masine">
+		</a>
+		</div>
+		
+		<div class="tekst">
+		<h2> Veš mašina </h2>
+		
+		<p>
+			Mašina stara 2 godine, mijenjam za sušilicu.
+		</p>
+		<aside class="datum">Objavljeno: <time class="vrijeme" ></time> </aside>
+		</div>
+						
+	</section>
+	
+	<section id="14" class="novost">
+	
+		<div class="slika"> 
+		<a href="http://www.google.ba">
+			<img src="./slike/masina.jpg" alt="Slika Masine">
+		</a>
+		</div>
+		
+		<div class="tekst">
+		<h2> Veš mašina </h2>
+		
+		<p>
+			Mašina stara 2 godine, mijenjam za sušilicu.
+		</p>
+		<aside class="datum">Objavljeno: <time class="vrijeme" ></time> </aside>
+		</div>
+						
+	</section>
+	
+	<section id="15" class="novost">
+	
+		<div class="slika"> 
+		<a href="http://www.google.ba">
+			<img src="./slike/masina.jpg" alt="Slika Masine">
+		</a>
+		</div>
+		
+		<div class="tekst">
+		<h2> Veš mašina </h2>
+		
+		<p>
+			Mašina stara 2 godine, mijenjam za sušilicu.
+		</p>
+		<aside class="datum">Objavljeno: <time class="vrijeme" ></time> </aside>
+		</div>
+						
+	</section>
+	
+	<section id="16" class="novost">
 	
 		<div class="slika"> 
 		<a href="http://www.google.ba">
@@ -338,14 +417,14 @@
 
 <div id="forma">
 
-<form>
+<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <h2>Oglasi postavljeni<h2>
 	<select id="izbor">
 		<option value="izaberi" >Izaberi</option>
-		<option value="danas" onclick="reload()">Danas</option>
-		<option value="sedmica" onclick="reload()">Ove sedmice</option>
-		<option value="mjesec" onclick="reload()">Ovog mjeseca</option>
-		<option value="sve" onclick="reload()">Svi</option>
+		<option value="danas" onclick="danas()">Danas</option>
+		<option value="sedmica" onclick="sedmica()">Ove sedmice</option>
+		<option value="mjesec" onclick="m()">Ovog mjeseca</option>
+		<option value="sve" onclick="sve()">Svi</option>
 	</select>
 
 </form>
