@@ -196,7 +196,11 @@ nav>ul>li>a
 	text-align:center;
 
 }
-
+#forma>form>label
+{
+	font-size:2vh;
+	font-size:2vw;
+}
 
 #kategorije>h2
 {

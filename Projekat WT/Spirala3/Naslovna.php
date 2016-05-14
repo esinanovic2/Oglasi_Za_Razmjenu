@@ -141,30 +141,73 @@ session_start();
 
 <div id="novosti">
 	<?php
+	
+		function uporediDatume($a, $b)
+		{
+			$t1 = strtotime($a['datum']);
+			$t2 = strtotime($b['datum']);
+			return $t1 - $t2;
+		}  
+		function uporediNaslove($a, $b)
+		{
+			$t1=$a['naslov'];
+			$t2=$b['naslov'];
+			return strcmp($t1,$t2);
+			
+		}
 		$vijest=fopen("Novosti.csv",'r')or die("Datoteka se ne može otvoriti");
+		$vijesti;
 		$i=0;
 		while(!feof($vijest))
 		{
 			$sadrzaj[$i]=fgets($vijest);
-			$i++;
-		}
-		$naslov; $oglas; $url; $datum;
-		for($j=0;$j<count($sadrzaj);$j++)
-		{
-			$temp=$sadrzaj[$j];
+			$temp=$sadrzaj[$i];
 			$linija=explode(";",$temp);
-			
 			if (!isset($linija[0]) || !isset($linija[1]) || !isset($linija[2]) || !isset($linija[3])) {
 				$linija[0] = null;
 				$linija[1] = null;
 				$linija[2] = null;
 				$linija[3] = null;
 			}
-			$naslov=$linija[0];
-			$oglas=$linija[1];
-			$url=$linija[2];
-			$datum=$linija[3];
+			$niz=Array("naslov"=>str_replace('"', "", $linija[0]), 
+					   "oglas"=>str_replace('"', "", $linija[1]),
+					   "url"=>str_replace('"', "", $linija[2]),
+					   "datum"=>$linija[3]);
+			$vijesti[$i]=$niz;
+			$i++;
 			
+		}
+		
+		/*if(isset($_REQUEST['sort']))
+		{
+			$izbor=$_REQUEST['abc'];
+			
+			if($izbor=="dtm")
+			{
+				usort($vijesti, 'uporediDatume');
+			}
+			else
+			{
+				usort($vijesti, 'uporediNaslove');
+			}
+			
+		}*/
+		
+			
+		
+		
+		usort($vijesti, 'uporediDatume');
+		$naslov; $oglas; $url; $datum;
+		for($j=0;$j<count($sadrzaj);$j++)
+		{
+			$temp=$sadrzaj[$j];
+			$linija=explode(";",$temp);
+			
+			$naslov=$vijesti[$j]['naslov'];
+			$oglas=$vijesti[$j]['oglas'];
+			$url=$vijesti[$j]['url'];
+			$datum=$vijesti[$j]['datum'];
+
 			echo 
 			"
 				<section id='".$j."' class='novost'>
@@ -418,7 +461,8 @@ session_start();
 <div id="forma">
 
 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-<h2>Oglasi postavljeni<h2>
+	<br>
+	<label>Oglasi postavljeni</label>
 	<select id="izbor">
 		<option value="izaberi" >Izaberi</option>
 		<option value="danas" onclick="danas()">Danas</option>
@@ -426,7 +470,15 @@ session_start();
 		<option value="mjesec" onclick="m()">Ovog mjeseca</option>
 		<option value="sve" onclick="sve()">Svi</option>
 	</select>
-
+	<br>
+	<label>Sortiraj po:</label>
+	<br>
+	<select id="abc" name="abc">
+		<option value="dtm">Datum</option>
+		<option value="abcd">Abeceda</option>
+	</select>
+	<br>
+	<input type="submit" name="sort" value="Sortiraj"></submit>
 </form>
 
 </div>
