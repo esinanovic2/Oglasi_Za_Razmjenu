@@ -115,6 +115,8 @@ session_start();
 			$niz=array($naslov,$oglas,$url,$datum);
 			$novost=fopen("Novosti.csv","a") or die("Datoteka se ne može otvoriti");
 			fputcsv($novost,$niz,";");
+			$stat = fstat($novost);
+			ftruncate($handle, $stat['size']-1);
 			fclose($novost);
 		}
 		/*$username=provjera($_REQUEST['ime']);
