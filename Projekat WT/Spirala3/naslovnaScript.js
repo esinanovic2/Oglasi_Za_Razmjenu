@@ -109,7 +109,7 @@ function racunajSedmice(razlikaSedmice)//funkcija koja provjerava koliko je sedm
 }	
 
 //Ova petlja postavlja datume u novosti, za testiranje treba promijeniti postavljene datume
-for(var i=5;i<novosti.length;i++)
+/*for(var i=5;i<novosti.length;i++)
 {
 	var vrijeme=document.getElementsByClassName("vrijeme");
 	vrijeme[i].setAttribute("data-datum","May 13, 2016 13:30:00");
@@ -121,7 +121,7 @@ for(var i=5;i<novosti.length;i++)
 	{
 		vrijeme[i].setAttribute("data-datum","Mar 18, 2002");
 	}
-}
+}*/
 //ova petlja postavlja klasu na sekcije novosti u zavisnosti od toga koliko je sati/dana/sedmica prošlo od postavljanja
 for(var i=0;i<novosti.length;i++)
 {
