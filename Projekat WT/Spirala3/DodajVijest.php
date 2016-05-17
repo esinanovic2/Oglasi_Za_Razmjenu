@@ -83,7 +83,20 @@ session_start();
 		<p >
 				<label>URL Slike<input type="text" name="url" id="url" onblur="urlValid()" required></label>
 		</p>
-		
+		<p>
+				<label>Dvoslovni kod države<input type="text" name="dkod" id="dkod" required></label>
+		</p>
+		<p>
+				<label id="l1">Pozivni Broj
+				<input type="text" name="tel" id="tel" onfocus="uzmiDKod()" onblur="telValid()" required>
+				</label>
+				
+		</p>
+		<p>
+				<label>
+				Telefon<input type="text" name="telefon" id="telefon" onblur="telefonValid()" required>
+				</label>
+		</p>
 		
 		
 		</div>
@@ -114,27 +127,20 @@ session_start();
 			
 			$niz=array($naslov,$oglas,$url,$datum);
 			$novost=fopen("Novosti.csv","a") or die("Datoteka se ne može otvoriti");
+			fwrite($novost,"\n");
 			fputcsv($novost,$niz,";");
 			$stat = fstat($novost);
 			ftruncate($handle, $stat['size']-1);
 			fclose($novost);
 		}
-		/*$username=provjera($_REQUEST['ime']);
-		$password=password_hash(provjera($_REQUEST['password']),PASSWORD_DEFAULT);
-		$email=provjera($_REQUEST['email']);
-		$datum=provjera($_REQUEST['datum']);
-		$telefon=provjera($_REQUEST['brojtelefona']);
-		
-		//echo "Radi: ".$username." ".$password." ".$email." ".$datum." ".$telefon;
-		$korisnici=fopen("Korisnici.txt","a+") or die("Datoteka se ne može otvoriti");
-		fwrite($korisnici,$username."\n");
-		fwrite($korisnici,$password."\n");
-		fclose($korisnici);*/
 	?>
 	
 
 </section>
+<div id="Ispis">
 
+
+</div>
 
 <footer>
 	<script src="vijestScript.js"></script>

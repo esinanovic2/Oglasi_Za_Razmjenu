@@ -165,9 +165,19 @@ session_start();
 		while(!feof($vijest))
 		{
 			$sadrzaj[$i]=fgets($vijest);
-			$temp=$sadrzaj[$i];
+			if($sadrzaj[$i]!=false || $sadrzaj[$i]=="\n")
+			{
+				$temp=$sadrzaj[$i];
 				$linija=explode(";",$temp);
-			if (!isset($linija[0]) || !isset($linija[1]) || !isset($linija[2]) || !isset($linija[3])) {
+			}
+			else
+			{
+				continue;
+			}
+			
+				
+			if (!isset($linija[0]) || !isset($linija[1]) || !isset($linija[2]) || !isset($linija[3])
+				||$linija[0]=="" ||$linija[1]=="" ||$linija[2]=="" ||$linija[3]=="") {
 				$linija[0] = null;
 				$linija[1] = null;
 				$linija[2] = null;
@@ -199,10 +209,8 @@ session_start();
 		
 		
 		$naslov; $oglas; $url; $datum;
-		for($j=0;$j<count($sadrzaj);$j++)
+		for($j=0;$j<count($vijesti);$j++/*$j=0;$j<count($sadrzaj);$j++*/)
 		{
-			$temp=$sadrzaj[$j];
-			$linija=explode(";",$temp);
 			
 			$naslov=$vijesti[$j]['naslov'];
 			$oglas=$vijesti[$j]['oglas'];
