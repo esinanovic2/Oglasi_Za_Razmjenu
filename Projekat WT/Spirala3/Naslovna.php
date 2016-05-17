@@ -165,7 +165,7 @@ session_start();
 		while(!feof($vijest))
 		{
 			$sadrzaj[$i]=fgets($vijest);
-			if($sadrzaj[$i]!=false || $sadrzaj[$i]=="\n")
+			if(strlen($sadrzaj[$i])>10)
 			{
 				$temp=$sadrzaj[$i];
 				$linija=explode(";",$temp);
