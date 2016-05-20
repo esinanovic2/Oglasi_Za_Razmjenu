@@ -141,6 +141,11 @@ header>#naslov>h1
 	text-align:right;
 	height:20px;
 }
+#login>a
+{
+	float:right;
+	margin-right:1vw;
+}
 input
 {
 	font-size:1vh;
@@ -198,8 +203,15 @@ nav>ul>li>a
 }
 #forma>form>label
 {
-	font-size:2vh;
+	font-size:1vh;
 	font-size:2vw;
+}
+.labela
+{
+	font-size:1vh;
+	font-size:1.5vw;
+	margin-top:0px;
+	margin-bottom:0px;
 }
 
 #kategorije>h2

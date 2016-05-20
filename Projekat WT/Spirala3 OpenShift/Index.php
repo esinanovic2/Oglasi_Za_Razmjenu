@@ -78,6 +78,7 @@ session_start();
 			{
 				$_SESSION["username"]=$username;
 				echo "Dobrodošli: ",$_SESSION["username"];
+				echo "<a href='logout.php'>Logout</a>";
 			}
 			else
 			{
@@ -91,6 +92,7 @@ session_start();
 			if(isset($_SESSION["username"]))
 			{
 				echo "Logirani ste kao: ".$_SESSION["username"];
+								
 			}
 			else
 			{
@@ -254,7 +256,7 @@ session_start();
 
 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 	<br>
-	<label>Oglasi postavljeni</label>
+	<p class="labela">Oglasi postavljeni</p>
 	<select id="izbor">
 		<option value="izaberi" >Izaberi</option>
 		<option value="danas" onclick="danas()">Danas</option>
@@ -262,9 +264,7 @@ session_start();
 		<option value="mjesec" onclick="m()">Ovog mjeseca</option>
 		<option value="sve" onclick="sve()">Svi</option>
 	</select>
-	<br>
-	<label>Sortiraj po:</label>
-	<br>
+	<p class="labela">Sortiraj po:</p>
 	<select id="abc" name="abc">
 		<option value="dtm">Datum</option>
 		<option value="abcd">Abeceda</option>

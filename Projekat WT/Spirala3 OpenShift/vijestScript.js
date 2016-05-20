@@ -113,7 +113,7 @@ function telValid()
 	var vrijednostTel=tel.value;
 	var dkod=document.getElementById("dkod");
 	var vrijednostDkod=dkod.value;
-	if(!(vrijednostTel==pozivni))
+	if(!(vrijednostTel==pozivni) || !(vrijednostDkod==kod))
 	{
 		greske++;
 		tel.style.backgroundColor="red";
