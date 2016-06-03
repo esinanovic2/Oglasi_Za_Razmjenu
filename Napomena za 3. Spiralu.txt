@@ -1,0 +1,1 @@
+Kad sam pravio listbox kojim se selektuju današnje/sedmiène/mjeseène vijesti, ja sam stavio da se funkcije pozivaju onclick metodom, ali to radi samo u firefoxu, trebao sam koristiti onselect metodu. 
