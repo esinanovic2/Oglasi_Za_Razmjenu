@@ -1,0 +1,363 @@
+
+body
+{
+	width:90vw;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#ccf5ff;
+}
+
+h1
+{
+	font-family:georgia;
+}
+h2
+{
+	font-family:Arial;
+}
+
+header
+{
+	font-size:3vh;
+	font-size:3vw;
+	width:90vw;
+	background-color:#0099ff;
+	border-style:solid;
+	border-color:navy;
+	border-bottom-right-radius:10px;
+	border-bottom-left-radius:10px;
+	/*border-radius:5px;*/
+}
+
+header>#naslov
+{
+	height:15vh;
+}
+
+header>#naslov>h1
+{
+	top:1vh;
+	bottom:2vh;
+	position:relative;
+	margin-top:5%;
+	margin-bottom:5%;
+	height:30%;
+	text-align:center;
+	text-shadow:2px 2px black;
+	font-style:oblique;
+	color:#FF9933;
+}
+
+
+.okvir
+{
+	float:left;
+	position:absolute;
+	left:8vw;
+	bottom:82vh;
+	background-color:transparent;
+	height:10vh;
+	width:9vw;
+}
+
+.krug1
+{
+	position:absolute;
+	height:0px;
+	width:0px;
+	border:1vh solid #FF9933;
+	border-radius:1vh;
+	top:0.7vh;
+	right:2.9vw;
+}
+
+.krug2
+{
+	position:absolute;
+	height:0px;
+	width:0px;
+	border:1vh solid #FF9933;
+	border-radius:1vh;
+	bottom:0.5vh;
+	left:2.8vw;
+}
+
+.desni
+{
+	position:absolute;
+	bottom:4.2vh;
+	right:0.2vw;
+	height:0px;
+	width:0px;
+	border-top:2vh solid transparent;
+	border-bottom:2vh solid transparent;
+	border-left:2vw solid #FF9933;	
+}
+
+.d
+{
+	position:absolute;
+	top:2.9vh;
+	right:1.6vw;
+	background-color:#FF9933;
+	width:5vw;
+	height:2vh;
+}
+.lijevi
+{
+	position:absolute;
+	bottom:1.5vh;
+	left:0.1vw;
+	height:0px;
+	width:0px;
+	border-top:2vh solid transparent;
+	border-bottom:2vh solid transparent;
+	border-right:2vw solid #FF9933;
+}
+.l
+{
+	position:absolute;
+	bottom:2.5vh;
+	left:1.4vw;
+	background-color:#FF9933;
+	width:5vw;
+	height:2vh;
+}
+
+#login
+{
+	background-color:transparent;
+	float:right;
+	position:absolute;
+	right:5vw;
+	bottom:82vh;
+	font-size:1vh;
+	font-size:1vw;
+}
+#login>table
+{
+	background-color:transparent;
+	border-style:none;
+	text-align:right;
+	height:20px;
+}
+#login>a
+{
+	float:right;
+	margin-right:1vw;
+}
+input
+{
+	font-size:1vh;
+	font-size:1vw;
+}
+
+nav
+{
+	margin-top:2vh;
+	font-size:2vh;
+	font-size:2vw;
+	padding:3px;
+	background-color:#007acc;
+	text-align:center;
+	
+}
+nav>ul>li
+{
+	font-family:georgia;
+	padding-left:45px;
+	padding-right:45px;
+	display:inline;
+}
+nav>ul>li>a
+{
+	color:#FF9933;
+}
+#kategorije
+{
+	position:relative;
+	width:23vw;
+	margin-top:17px;
+	margin-bottom:5px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#0099ff;
+	border-style:solid;
+	border-color:black;
+	float:left;
+}
+
+#forma
+{
+	width:23vw;
+	margin-bottom:5px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#0099ff;
+	border-style:solid;
+	border-color:black;
+	float:left;
+	height:25vh;
+	text-align:center;
+
+}
+#forma>form>label
+{
+	font-size:1vh;
+	font-size:2vw;
+}
+.labela
+{
+	font-size:1vh;
+	font-size:1.5vw;
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+#kategorije>h2
+{
+	font-size:3vh;
+	font-size:3vw;
+	position:relative;
+	margin:10px;
+	text-align:center;
+	text-shadow:1px 1px black;
+	font-family:georgia;
+	font-style:oblique;
+	color:#FF9933;
+}
+
+#kategorije>section
+{
+	float:left;
+	width:15vw;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#kategorije>section>ul
+{
+	padding-left:2px;
+}
+
+#kategorije>section>ul>li
+{
+	width:5vw;
+	margin-left:auto;
+	margin-right:auto;
+	position:relative;
+	padding:5px;
+	font-family:Arial;
+	font-size:2vh;
+	font-size:2vw;
+	color:#000000;
+	text-justify:auto;
+	
+}
+
+#novosti
+{
+	position:relative;
+	margin-top:10px;
+	margin-bottom:10px;
+	margin-left:auto;
+	margin-right:auto;
+	width:59vw;
+	float:right;
+	padding-left:3vw;
+	min-height:800px;
+
+}
+#novosti>section
+{
+	
+	position:relative;
+	padding-top:1%;
+	padding-bottom:2%;
+	margin-top:5px;
+	margin-bottom:5px;
+	margin-left:auto;
+	margin-right:auto;
+	/*min-width:100px; Ako se uključi ova linija onda će se novosti poredati jedna ispod druge prilikom smanjivanja širine browsera. Nisam siguran da li treba tako pa sam zakomentarisao ovu liniju.*/
+	width:15vw;
+	height:30vh;
+	background-color:#ff8533;
+	border-style:outset;
+	border-color:black;
+	float:left;
+}
+
+.slika
+{
+	position:relative;
+	width:12vw;	
+	height:20vh;
+	margin-bottom:3%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.slika>a>img
+{
+	position:relative;
+	height:100%;
+	width:100%;
+	margin-bottom:10px;
+}
+
+.tekst
+{
+	position:relative;
+	width:15vw;
+	height:8vh;
+	margin-top:3vh;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:-5px;
+}
+
+
+.tekst>h2
+{
+	font-size:1vh;
+	font-size:1vw;
+	text-align:center;
+	margin-top:-1vh;
+	margin-bottom:-1vh;
+	
+}
+.tekst>p
+{
+	font-size:1vh;
+	font-size:1vw;
+	text-align:center;
+}
+
+.datum
+{
+	position:relative;
+	width:10vw;
+	height:2vh;
+	text-align:center;
+	margin-top:-2vh;
+	margin-right:auto;
+	margin-left:auto;
+	font-size:1.2vh;
+}
+
+#vrijeme
+{
+}
+footer
+{
+	font-size:2vh;
+	margin:2px;
+	text-align:center;
+	background-color:#0099ff;
+	border-style:solid;
+	border-color:navy;
+	border-top-right-radius:10px;
+	border-top-left-radius:10px;
+	clear:both;
+	float:bottom;
+}
